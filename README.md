@@ -1,13 +1,13 @@
 # 3D Mini Game Physics & Loop Engine
 
-Arka uç (backend) ve ön yüz (frontend) ayrımına sahip, oyun döngüsünü (game loop) ve fizik mantığını düzenli şekilde yönetmeyi hedefleyen mini 3B oyun motoru projesi.
+Arka uç (backend) ve ön yüz (frontend) ayrımına sahip, oyun döngüsünü (game loop) ve fizik mantığını düzenli bir mimari içinde yönetmeyi amaçlayan mini 3B oyun motoru projesi.
 
 ## Proje Yapısı
 
 ```text
 mini-game-physics-engine/
-├── backend/     # Sunucu ve arka uç mantığı
-├── frontend/    # Kullanıcı arayüzü ve sahne/oyun görünümü
+├── backend/     # Oyun döngüsü, fizik/sunucu mantığı ve arka uç bileşenleri
+├── frontend/    # Sahne, arayüz ve istemci tarafı dosyaları
 ├── .gitignore   # Git'e gönderilmeyecek dosya ve klasörler
 └── README.md    # Proje açıklaması ve çalıştırma adımları
 ```
@@ -15,8 +15,7 @@ mini-game-physics-engine/
 ## Gereksinimler
 
 * **Git** (sürüm kontrolü ve güncelleme gönderimi için)
-* **Python** (arka uç bileşenlerini çalıştırmak için)
-* **Node.js ve npm** (ön yüz paketleri veya web araçları kullanılıyorsa)
+* **Python** (arka uç bileşenlerini ve yerel sunucuyu çalıştırmak için)
 
 ## Yerel Çalıştırma Adımları
 
@@ -29,13 +28,25 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Paket kurulumundan sonra `backend` klasöründeki ana çalıştırma dosyasını kendi dosya adına göre çalıştırın.
+*(Projede ayrı bir bağımlılık listesi yoksa veya sanal ortam kullanılmıyorsa kurulum adımını atlayabilirsiniz).* Ardından `backend` klasöründeki ana Python dosyasını çalıştırın:
+
+```bash
+python main.py
+```
+
+*(Ana dosyanın adı farklıysa kendi dosya adınıza göre güncelleyin).*
 
 ### 2. Ön Yüz (Frontend)
 
+Ön yüz dosyalarını tarayıcıda açmak veya yerel sunucu üzerinden çalıştırmak için `frontend` klasörüne geçin:
+
 ```bash
 cd frontend
-npm install
-npm run dev
+python -m http.server 8000
 ```
 
+Ardından tarayıcıdan `http://localhost:8000` adresine giderek arayüzü ve sahneyi görüntüleyebilirsiniz (veya `index.html` varsa doğrudan tarayıcıda açabilirsiniz).
+
+## Geliştirme Durumu
+
+Projenin temel klasör yapısı oluşturuldu ve `README.md` dokümantasyonu ile birlikte GitHub'daki `main` dalına aktarıldı. Fizik hesaplamaları, oyun döngüsü ve arayüz entegrasyonu üzerinde geliştirmeler sürdürülmektedir.

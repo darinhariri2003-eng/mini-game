@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Game Physics & Loop Engine </title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Mini Game Physics & Loop Engine </h1>
+      <span id="connStatus" class="badge offline">Bağlanıyor...</span>
+    </div>
+    <div class="hud-stats">
+      <div>Dalga: <strong id="waveVal">1</strong></div>
+      <div>Skor: <strong id="scoreVal">0</strong></div>
+      <div>Kare: <strong id="frameVal">0</strong></div>
+      <div>Durum: <strong id="stateVal">IdleState</strong></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="arena-panel">
+      <div class="controls-bar">
+        <button id="btnStart" class="primary">Başlat</button>
+        <button id="btnPause">Duraklat</button>
+        <button id="btnStep">Tek Kare (Step)</button>
+        <button id="btnSpawnGoblin" class="accent">+ Goblin (Factory)</button>
+        <button id="btnSpawnBoss" class="accent">+ Boss (Factory)</button>
+        <button id="btnAttack" class="danger">Saldır (Space)</button>
+        <button id="btnRevive">Canlandır</button>
+        <button id="btnReset">Sıfırla</button>
+      </div>
+
+      <div id="sceneContainer" class="scene-container"></div>
+
+      <div class="bars">
+        <div class="bar-box">
+          <span>Can (HP): <strong id="hpText">100/100</strong></span>
+          <div class="meter"><div id="hpFill" class="fill hp"></div></div>
+        </div>
+        <div class="bar-box">
+          <span>Enerji (Stamina): <strong id="staminaText">100/100</strong></span>
+          <div class="meter"><div id="staminaFill" class="fill stamina"></div></div>
+        </div>
+      </div>
+      <p class="hint">Hareket: <strong>WASD / Yön Tuşları</strong> • Saldırı: <strong>Space</strong></p>
+    </section>
+
+    <aside class="inspector-panel">
+      <div class="card">
+        <h2>Observer & Olay Günlüğü</h2>
+        <div id="observerSummary" class="mono-line">Bekleniyor...</div>
+        <ul id="eventList" class="event-list"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Composite Sahne Ağacı</h2>
+        <pre id="sceneTree" class="tree-box"></pre>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
